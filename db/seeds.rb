@@ -7,14 +7,14 @@ Photo.destroy_all
 
 puts 'Creating Users...'
 
-u1 = User.create!(username: "aetv", password: "allyouneedislove")
-u2 = User.create!(username: "jmolinier", password: "allyouneedislove")
-u3 = User.create!(username: "fburguiere", password: "allyouneedislove")
+u1 = User.create!(email: "aetv@changethisemail.com", username: "aetv", password: "allyouneedislove")
+u2 = User.create!(email: "jmolinier@changethisemail.com", username: "jmolinier", password: "allyouneedislove")
+u3 = User.create!(email: "fburguiere@changethisemail.com", username: "fburguiere", password: "allyouneedislove")
 
 puts 'Creating Photos...'
 
 for i in 1..1359
-  photo = Photo.new
+  photo = Photo.create!
   num = 0
   if i.digits.count == 1
     num="000#{i}"
@@ -25,7 +25,7 @@ for i in 1..1359
   else
     num="#{i}"
   end
-  photo.attach(File.open("../app/assets/images/photos/AVmrg#{num}.JPG"))
+  photo.image.attach(io: File.open("app/assets/images/photos/AVmrg#{num}.JPG"), filename: "AVmrg#{num}.JPG")
 end
 
 puts 'Finished !'

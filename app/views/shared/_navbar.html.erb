@@ -1,14 +1,16 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path do %>
-    <div class="navbar-wagon-brand">
-    </div>
-  <% end %>
+  <%#= link_to root_path do %>
+    <!-- <div class="navbar-wagon-brand"> -->
+    <!-- </div> -->
+  <%# end %>
 
   <!-- Middle Navigation -->
-  <div class="site-heading text-center">
-    <p class="site-heading-upper">Annaëlle & Vincent<br><span>7 Avril 2018</span></p>
-  </div>
+  <%= link_to root_path do %>
+    <div class="site-heading text-center">
+      <p class="site-heading-upper">Annaëlle & Vincent<br><span>7 Avril 2018</span></p>
+    </div>
+  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -16,18 +18,19 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "All", photos_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Before", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Mairie", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Cérémonie", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Vin d'Honneur", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Repas", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "After", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <h1 class="site-heading text-center text-white d-none d-lg-block">
-            <span class="site-heading-upper">Annaëlle & Vincent</span>
-            <span class="site-heading-lower">7 Avril 2018</span>
-          </h1>
+          <i class="fas fa-user avatar dropdown-toggle text-center" id="navbar-wagon-menu" data-toggle="dropdown"></i>
+          <%#= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>

@@ -1,15 +1,46 @@
 <div class="container">
-  <div class="box">
-    <div class="row">
-      <% @photos.each do |photo|%>
-        <div class="col-xs-12 col-sm-4">
-          <%= link_to photo_path(photo), class: "card-link" do %>
-            <div class="card-company">
-              <%= image_tag(url_for(photo.image)) %>
+  <div class="row">
+    <% @photos.each do |photo|%>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="card">
+          <%= image_tag(url_for(photo.image), class: "card-photo") %>
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#photoModal<%= photo.id %>">
+            <i class="far fa-eye"></i>
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="photoModal<%= photo.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+                  <%= image_tag(url_for(photo.image)) %>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
             </div>
+          </div>
+          <!-- end Modal -->
+
+          <i class="fas fa-check-square"></i>
+
+          <%= link_to download_path(id: photo.id) do %>
+            <i class="fas fa-download"></i>
           <% end %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

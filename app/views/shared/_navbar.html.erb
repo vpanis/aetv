@@ -1,3 +1,4 @@
+<div class="all-website-header-margin"></div>
 <div class="navbar-wagon">
   <!-- Logo -->
   <%#= link_to root_path do %>
@@ -6,7 +7,7 @@
   <%# end %>
 
   <!-- Middle Navigation -->
-  <%= link_to root_path do %>
+  <%= link_to root_path, class: "navbar-wagon-item navbar-wagon-link" do %>
     <div class="site-heading text-center">
       <p class="site-heading-upper">Annaëlle & Vincent<br><span>7 Avril 2018</span></p>
     </div>
@@ -29,7 +30,7 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <i class="fas fa-user avatar dropdown-toggle text-center" id="navbar-wagon-menu" data-toggle="dropdown"></i>
+          <i class="fas fa-user avatar dropdown-toggle text-center navbar-wagon-item navbar-wagon-link" id="navbar-wagon-menu" data-toggle="dropdown"></i>
           <%#= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>

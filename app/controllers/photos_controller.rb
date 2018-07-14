@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :set_photo, only: [:show]
+  before_action :set_photo, only: [:show, :download]
 
   def index
     @photos = Photo.all
@@ -27,7 +27,15 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(photo_params)
+    @photo = Photo.create(photo_params)
+  end
+
+  def download
+    send_file(
+      "#{Rails.root}/app/assets/images/photos/#{rails_blob_path(@photo.image)[-13..-1]}",
+      filename: "#{rails_blob_path(@photo.image)[-13..-1]}",
+      type: "application/jpg"
+    )
   end
 
   private

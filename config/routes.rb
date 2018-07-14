@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get "cocktail" => "photos#cocktail"
   get "dinner" => "photos#dinner"
   get "after" => "photos#after"
+  get "download" => "photos#download"
 end
